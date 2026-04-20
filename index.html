@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport"/>
 <title>BetterLaptops — Премиальные MacBook в Бишкеке</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
   body {
     background: var(--bg);
@@ -37,6 +37,7 @@
     font-size: 16px;
     line-height: 1.6;
     overflow-x: hidden;
+    max-width: 100%;
   }
 
   /* ── SCROLLBAR ── */
