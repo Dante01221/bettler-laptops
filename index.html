@@ -1132,14 +1132,15 @@
 
     /* CATALOG */
     .catalog-header { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 24px; }
-    .products-grid { grid-template-columns: 1fr; gap: 16px; }
-    .product-img { height: 200px; }
-    .product-img img { width: 70%; height: 70%; }
-    .product-info { padding: 18px; }
-    .product-name { font-size: 16px; }
-    .product-spec { font-size: 12px; margin-bottom: 14px; }
-    .product-price .kgs { font-size: 20px; }
-    .btn-cart { width: 40px; height: 40px; border-radius: 10px; }
+    .products-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .product-img { height: 160px; }
+    .product-img img { width: 75%; height: 75%; }
+    .product-info { padding: 14px; }
+    .product-name { font-size: 13px; margin-bottom: 4px; }
+    .product-spec { font-size: 11px; margin-bottom: 10px; }
+    .product-price .kgs { font-size: 13px; }
+    .btn-cart { width: 34px; height: 34px; border-radius: 8px; }
+    .product-badge { font-size: 9px; padding: 3px 8px; top: 10px; left: 10px; }
 
     /* REVIEWS */
     .reviews-grid { grid-template-columns: 1fr; gap: 14px; }
@@ -1165,6 +1166,7 @@
 
   /* Extra small — узкие телефоны */
   @media (max-width: 390px) {
+    .products-grid { grid-template-columns: 1fr; }
     .hero-title { font-size: 30px; }
     .benefits-grid { grid-template-columns: 1fr; }
     .stat-num { font-size: 26px; }
