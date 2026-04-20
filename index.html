@@ -1164,66 +1164,36 @@
     .section-tag { font-size: 10px; }
   }
 
-  /* Extra small — узкие телефоны */
- /* ЭТОТ БЛОК ПРАВИТ ТОЛЬКО МОБИЛКУ */
+/* ─── АДАПТИВ ДЛЯ МОБИЛОК ─── */
   @media (max-width: 768px) {
     
-    /* 1. Навигация (Шапка) */
-    nav {
-      padding: 0 15px !important; /* Уменьшаем боковые отступы */
-      height: 60px;
-    }
-    .nav-links {
-      display: none; /* Прячем текстовое меню (оно не влазит) */
-    }
-    .search-wrap {
-      width: 40px; /* Сужаем поиск до иконки */
-      padding: 6px;
-    }
-    .search-wrap input {
-      display: none; /* Прячем само поле ввода */
+    /* 1. Добавляем отступ внизу сайта, чтобы WhatsApp ничего не перекрывал */
+    body {
+      padding-bottom: 80px !important; 
     }
 
-    /* 2. Главный экран (Hero) */
-    .hero {
-      padding: 100px 20px 40px !important;
-      min-height: auto;
-    }
-    .hero h1 {
-      font-size: 32px !important; /* Уменьшаем гигантский шрифт */
-      margin-bottom: 20px;
-    }
-    .hero-btns {
-      flex-direction: column; /* Кнопки в столбик, а не в ряд */
-      width: 100%;
-    }
-    .btn {
-      width: 100%; /* Кнопки на всю ширину экрана */
-      justify-content: center;
+    /* 2. Сама кнопка WhatsApp (если у нее класс .whatsapp-float или похожий) */
+    /* Мы ее немного уменьшаем и смещаем, чтобы не мешала */
+    .whatsapp-float, [href*="wa.me"], [href*="whatsapp"] {
+      width: 50px !important;
+      height: 50px !important;
+      bottom: 20px !important;
+      right: 20px !important;
+      z-index: 9999 !important; /* Чтобы она всегда была сверху */
     }
 
-    /* 3. Сетка товаров */
-    .products-grid {
-      grid-template-columns: 1fr !important; /* Делаем 1 товар в ряд вместо 3-х */
-      gap: 15px;
-      padding: 0 10px;
-    }
-
-    /* 4. Сетка преимуществ (Features) */
-    .features-grid {
-      grid-template-columns: 1fr !important;
-      gap: 15px;
-    }
-
-    /* 5. Футер (Низ сайта) */
+    /* 3. Исправляем наложение в футере */
     .footer-grid {
-      grid-template-columns: 1fr !important; /* Колонки футера друг под другом */
-      text-align: center;
+      grid-template-columns: 1fr !important;
       gap: 30px;
+      padding-bottom: 40px;
     }
-    .footer-section {
-      align-items: center;
-    }
+
+    /* 4. Те самые правки из прошлого шага (обязательно оставь их) */
+    .nav-links { display: none !important; }
+    .products-grid { grid-template-columns: 1fr !important; }
+    .hero h1 { font-size: 28px !important; }
+  }
   }
   }
 </style>
