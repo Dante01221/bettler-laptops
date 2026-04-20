@@ -1165,42 +1165,37 @@
   }
 
 /* ─── ЧИСТЫЙ АДАПТИВ ДЛЯ МОБИЛОК ─── */
-  @media (max-width: 768px) {
-    /* 1. Навигация и общие блоки */
-    nav { padding: 0 15px !important; height: 60px; }
-    .nav-links { display: none !important; }
-    .search-wrap { width: 42px; padding: 6px; overflow: hidden; }
-    .search-wrap input { display: none; }
-    .hero { padding: 100px 20px 40px !important; min-height: auto; }
-    .hero h1 { font-size: 32px !important; }
-
-    /* 2. WHATSAPP (сверху) */
+ @media (max-width: 768px) {
+    /* 1. WhatsApp — сидит справа, чуть выше обычного */
     .whatsapp-btn {
-      bottom: 110px !important; /* Подняли выше */
+      bottom: 100px !important;
       right: 20px !important;
       left: auto !important;
       margin: 0 !important;
-      position: fixed !important;
     }
 
-    /* 3. ПРОКРУТИТЕ (строго ПОД вотсапом) */
+    /* 2. Прокрутите — возвращаем в ЦЕНТР, но опускаем вниз */
     .scroll-hint {
-      bottom: 40px !important; /* Оставили внизу */
-      right: 22px !important;  /* Выровняли по правому краю с кнопкой */
-      left: auto !important;   /* Отменили центровку */
-      margin: 0 !important;    /* Убрали авто-поля */
-      width: 60px !important;
-      text-align: center;
+      bottom: 25px !important; /* Опустили ниже кнопки WhatsApp */
+      left: 0 !important;
+      right: 0 !important;
+      margin: 0 auto !important; /* Центровка по горизонтали */
+      width: fit-content !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
     }
-    
-    /* Убираем иконку мышки, чтобы не мешала тексту под кнопкой */
-    .scroll-hint span { display: none !important; }
 
-    /* 4. Сетки товаров и футера в 1 колонку */
-    .products-grid, .features-grid, .footer-grid {
-      grid-template-columns: 1fr !important;
-      gap: 20px;
+    /* Чтобы линия и текст были видны четко */
+    .scroll-hint span {
+      display: block !important; 
     }
+
+    /* Остальные правки для мобилки (шапка, сетка) */
+    nav { padding: 0 15px !important; }
+    .nav-links { display: none !important; }
+    .hero h1 { font-size: 30px !important; }
+    .products-grid, .footer-grid { grid-template-columns: 1fr !important; }
   }
 </style>
 </head>
