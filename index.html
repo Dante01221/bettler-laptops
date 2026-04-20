@@ -1164,67 +1164,43 @@
     .section-tag { font-size: 10px; }
   }
 
-/* ЭТОТ БЛОК ПРАВИТ ТОЛЬКО МОБИЛКУ */
+/* ─── ЧИСТЫЙ АДАПТИВ ДЛЯ МОБИЛОК ─── */
   @media (max-width: 768px) {
-    
-    /* 1. Навигация (Шапка) */
-    nav {
-      padding: 0 15px !important; /* Уменьшаем боковые отступы */
-      height: 60px;
-    }
-    .nav-links {
-      display: none; /* Прячем текстовое меню (оно не влазит) */
-    }
-    .search-wrap {
-      width: 40px; /* Сужаем поиск до иконки */
-      padding: 6px;
-    }
-    .search-wrap input {
-      display: none; /* Прячем само поле ввода */
+    /* 1. Навигация и общие блоки */
+    nav { padding: 0 15px !important; height: 60px; }
+    .nav-links { display: none !important; }
+    .search-wrap { width: 42px; padding: 6px; overflow: hidden; }
+    .search-wrap input { display: none; }
+    .hero { padding: 100px 20px 40px !important; min-height: auto; }
+    .hero h1 { font-size: 32px !important; }
+
+    /* 2. WHATSAPP (сверху) */
+    .whatsapp-btn {
+      bottom: 110px !important; /* Подняли выше */
+      right: 20px !important;
+      left: auto !important;
+      margin: 0 !important;
+      position: fixed !important;
     }
 
-    /* 2. Главный экран (Hero) */
-    .hero {
-      padding: 100px 20px 40px !important;
-      min-height: auto;
-    }
-    .hero h1 {
-      font-size: 32px !important; /* Уменьшаем гигантский шрифт */
-      margin-bottom: 18px;
-    }
-    .hero-btns {
-      flex-direction: column; /* Кнопки в столбик, а не в ряд */
-      width: 100%;
-    }
-    .btn {
-      width: 100%; /* Кнопки на всю ширину экрана */
-      justify-content: center;
-    }
-
-    /* 3. Сетка товаров */
-    .products-grid {
-      grid-template-columns: 1fr !important; /* Делаем 1 товар в ряд вместо 3-х */
-      gap: 15px;
-      padding: 0 10px;
-    }
-
-    /* 4. Сетка преимуществ (Features) */
-    .features-grid {
-      grid-template-columns: 1fr !important;
-      gap: 15px;
-    }
-
-    /* 5. Футер (Низ сайта) */
-    .footer-grid {
-      grid-template-columns: 1fr !important; /* Колонки футера друг под другом */
+    /* 3. ПРОКРУТИТЕ (строго ПОД вотсапом) */
+    .scroll-hint {
+      bottom: 40px !important; /* Оставили внизу */
+      right: 22px !important;  /* Выровняли по правому краю с кнопкой */
+      left: auto !important;   /* Отменили центровку */
+      margin: 0 !important;    /* Убрали авто-поля */
+      width: 60px !important;
       text-align: center;
-      gap: 30px;
     }
-    .footer-section {
-      align-items: center;
+    
+    /* Убираем иконку мышки, чтобы не мешала тексту под кнопкой */
+    .scroll-hint span { display: none !important; }
+
+    /* 4. Сетки товаров и футера в 1 колонку */
+    .products-grid, .features-grid, .footer-grid {
+      grid-template-columns: 1fr !important;
+      gap: 20px;
     }
-  }
-  }
   }
 </style>
 </head>
