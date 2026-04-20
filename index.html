@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BetterLaptops — Премиальные MacBook в Бишкеке</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface-2: #181818;
+    --surface-3: #1e1e1e;
+    --border: rgba(255,255,255,0.07);
+    --border-hover: rgba(99,179,255,0.3);
+    --text: #f0f0f0;
+    --text-muted: #888;
+    --text-dim: #555;
+    --accent: #4f9eff;
+    --accent-2: #1a6fff;
+    --accent-glow: rgba(79,158,255,0.15);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 48px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-logo .dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--accent);
+    transition: width 0.25s ease;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .search-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 14px;
+    transition: border-color 0.2s;
+  }
+
+  .search-wrap:focus-within {
+    border-color: var(--accent);
+  }
+
+  .search-wrap input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 13px;
+    width: 140px;
+  }
+
+  .search-wrap input::placeholder { color: var(--text-dim); }
+
+  .search-wrap .material-symbols-outlined {
+    color: var(--text-dim);
+    font-size: 18px;
+  }
+
+  .btn-icon {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 40px; height: 40px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-muted);
+    position: relative;
+  }
+
+  .btn-icon:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .btn-icon .badge {
+    position: absolute;
+    top: -4px; right: -4px;
+    width: 16px; height: 16px;
+    background: var(--accent);
+    border-radius: 50%;
+    font-size: 9px;
+    font-weight: 700;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-family: var(--font-display);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    filter: saturate(0.5);
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(to bottom, transparent 30%, var(--bg) 100%),
+      linear-gradient(to top, transparent 70%, rgba(10,10,10,0.7) 100%);
+  }
+
+  /* grid overlay */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(79,158,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(79,158,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* radial glow */
+  .hero-glow {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(79,158,255,0.12) 0%, transparent 70%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+  }
+
+  .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(79,158,255,0.08);
+    border: 1px solid rgba(79,158,255,0.2);
+    border-radius: 100px;
+    padding: 6px 16px;
+    margin-bottom: 36px;
+    animation: fade-up 0.8s ease both;
+  }
+
+  .hero-label .material-symbols-outlined { font-size: 14px; }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 24px;
+    animation: fade-up 0.8s 0.1s ease both;
+  }
+
+  .hero-title span {
+    background: linear-gradient(135deg, var(--accent) 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto 48px;
+    animation: fade-up 0.8s 0.2s ease both;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fade-up 0.8s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 14px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary:hover {
+    background: #2d88ff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px rgba(79,158,255,0.35);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 14px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.2);
+    color: var(--text);
+  }
+
+  /* scroll indicator */
+  .scroll-hint {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    animation: fade-up 1s 0.6s ease both;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: scroll-drop 1.5s ease-in-out infinite;
+  }
+
+  @keyframes scroll-drop {
+    0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+    50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    51% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+    100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 48px;
+  }
+
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 0 24px;
+    border-right: 1px solid var(--border);
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 120px 48px; }
+
+  .section-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: var(--text);
+  }
+
+  /* ── ABOUT ── */
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-top: 24px;
+    font-weight: 300;
+  }
+
+  .about-address {
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: border-color 0.2s;
+  }
+
+  .about-address:hover { border-color: var(--border-hover); }
+
+  .about-address .icon-wrap {
+    width: 48px; height: 48px;
+    background: rgba(79,158,255,0.1);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .about-address h4 { font-weight: 600; font-size: 15px; }
+  .about-address p { color: var(--text-muted); font-size: 14px; margin: 0; }
+
+  .about-img-wrap {
+    position: relative;
+  }
+
+  .about-img-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
+    border-radius: 24px;
+    opacity: 0.15;
+    filter: blur(1px);
+  }
+
+  .about-img-wrap img {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+    display: block;
+  }
+
+  /* ── BENEFITS ── */
+  .benefits {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .benefits-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 64px;
+  }
+
+  .benefits-header p {
+    margin-top: 16px;
+    color: var(--text-muted);
+    font-size: 17px;
+    font-weight: 300;
+  }
+
+  .benefits-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .benefit-card {
+    background: var(--surface-2);
+    padding: 40px 32px;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .benefit-card:hover { background: var(--surface-3); }
+  .benefit-card:hover::before { opacity: 1; }
+
+  .benefit-icon {
+    width: 52px; height: 52px;
+    background: rgba(79,158,255,0.08);
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    color: var(--accent);
+    margin-bottom: 20px;
+    transition: background 0.2s;
+  }
+
+  .benefit-card:hover .benefit-icon {
+    background: rgba(79,158,255,0.15);
+  }
+
+  .benefit-card h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .benefit-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ── CATALOG ── */
+  .catalog-inner { max-width: 1100px; margin: 0 auto; }
+
+  .catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+  }
+
+  .catalog-header a {
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: gap 0.2s;
+  }
+
+  .catalog-header a:hover { gap: 8px; }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .product-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .product-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 16px; left: 16px;
+    z-index: 2;
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  .product-badge.new { background: #10b981; }
+  .product-badge.hot { background: #ef4444; }
+
+  .product-img {
+    height: 240px;
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .product-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--surface));
+  }
+
+  .product-img img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+  }
+
+  .product-card:hover .product-img img {
+    transform: scale(1.08) translateY(-4px);
+  }
+
+  .product-info { padding: 24px; }
+
+  .product-name {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+
+  .product-spec {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+  }
+
+  .product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .product-price {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-price .kgs {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .product-price .usd {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 3px;
+  }
+
+  .btn-cart {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: rgba(79,158,255,0.1);
+    border: 1px solid rgba(79,158,255,0.2);
+    display: grid;
+    place-items: center;
+    color: var(--accent);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 20px;
+  }
+
+  .btn-cart:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    transform: scale(1.05);
+  }
+
+  .btn-wa {
+    background: rgba(37,211,102,0.12);
+    border-color: rgba(37,211,102,0.3);
+    color: #25d366;
+  }
+
+  a.product-card:hover .btn-wa {
+    background: #25d366;
+    border-color: #25d366;
+    color: white;
+  }
+
+  .product-wa-hint {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 5;
+    background: rgba(37,211,102,0.93);
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.25s ease;
+    border-radius: 20px 20px 0 0;
+  }
+
+  a.product-card:hover .product-wa-hint {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── REVIEWS ── */
+  .reviews {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .reviews-inner { max-width: 1100px; margin: 0 auto; }
+
+  .reviews-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .review-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .review-card:hover { border-color: var(--border-hover); }
+
+  .review-card .quote-mark {
+    position: absolute;
+    top: 20px; right: 24px;
+    font-family: Georgia, serif;
+    font-size: 100px;
+    line-height: 1;
+    color: rgba(79,158,255,0.07);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 20px;
+  }
+
+  .stars .material-symbols-outlined {
+    color: #f59e0b;
+    font-size: 16px;
+    font-variation-settings: 'FILL' 1;
+  }
+
+  .review-text {
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.7;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 28px;
+  }
+
+  .reviewer {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .reviewer-avatar {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), #7c3aed);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .reviewer-name {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+
+  .reviewer-role {
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  /* ── FAQ ── */
+  .faq-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .faq-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .faq-item.open { border-color: rgba(79,158,255,0.25); }
+
+  .faq-q {
+    width: 100%;
+    padding: 22px 24px;
+    background: none;
+    border: none;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    gap: 16px;
+  }
+
+  .faq-q span:first-child {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .faq-q .faq-icon {
+    color: var(--accent);
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .faq-item.open .faq-a { max-height: 200px; }
+
+  .faq-a-inner {
+    padding: 0 24px 22px;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #070707;
+    border-top: 1px solid var(--border);
+    padding: 72px 48px 40px;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+
+  .footer-brand p {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 280px;
+  }
+
+  .footer-col h4 {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+  .footer-col ul li a,
+  .footer-col ul li span {
+    font-size: 14px;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--accent); }
+
+  .footer-contacts { display: flex; flex-direction: column; gap: 12px; }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  .contact-row .material-symbols-outlined {
+    color: var(--accent);
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .social-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+
+  .social-links a:hover { color: var(--accent); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    nav { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-inner { grid-template-columns: 1fr; gap: 48px; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-item { border-right: none; }
+  }
+
+  @media (max-width: 768px) {
+    section { padding: 80px 24px; }
+    nav { padding: 0 20px; }
+    .nav-links, .search-wrap { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    .hero-title { font-size: 42px; }
+    .products-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    footer { padding: 48px 24px 32px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .stats-bar { padding: 24px; }
+    .catalog-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .benefits-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    BetterLaptops<span class="dot"></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">О нас</a></li>
+    <li><a href="#catalog">Каталог</a></li>
+    <li><a href="#benefits">Преимущества</a></li>
+    <li><a href="#reviews">Отзывы</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="search-wrap">
+      <span class="material-symbols-outlined">search</span>
+      <input type="text" placeholder="Поиск модели...">
+    </div>
+    <button class="btn-icon">
+      <span class="material-symbols-outlined" style="font-size:20px">shopping_cart</span>
+      <span class="badge">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdQcA4l0AFF65HBHoRg0U8a3RT3zvzF-XcH-r-mLwZzkF45WCU0BoZ6iCYU-Q-vGeT1u-B58bvcRi5D0EGzs8hBC3bgCL0IWx0RgUXh5QeLqOdZeTiSGkLWLlMrB1Pu7hwqfK97lASJPkZ907fl1DCebYKH24KZNP1kJAQseM9Sw4WW-DZbcoYmt9TUvhmTJ3TFNSSqJS4bcQwe31PRvTRHpFih6sGss7S7gqYzBPUyQ6MOYTKcZWS9tex9exg3hxaJtyaYYEgXnc" alt="MacBook Pro">
+  </div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-content">
+    <div class="hero-label">
+      <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">verified</span>
+      Официальный партнёр Apple в Кыргызстане
+    </div>
+    <h1 class="hero-title">
+      Лучшие MacBook<br>
+      в <span>Бишкеке</span>
+    </h1>
+    <p class="hero-sub">Оригинальная техника Apple с гарантией, рассрочкой и Trade-in прямо в ТЦ ЦУМ.</p>
+    <div class="hero-ctas">
+      <a href="#catalog" class="btn-primary">
+        <span class="material-symbols-outlined" style="font-size:18px">grid_view</span>
+        Смотреть каталог
+      </a>
+      <a href="#about" class="btn-ghost">
+        Узнать больше
+        <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Прокрутить</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Довольных клиентов</div>
+    </div>
+    <div class="stat-item reveal" style="transition-delay:0.1s">
+      <div class="stat-num">3+</div>
+      <div class="stat-label">Года на рынке</div>
+    </div>
+    <div class="stat-item reveal" style="transition-delay:0.2s">
+      <div class="stat-num">24</div>
+      <div class="stat-label">Месяца рассрочки</div>
+    </div>
+    <div class="stat-item reveal" style="transition-delay:0.3s">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Месяцев гарантии</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text reveal">
+      <span class="section-tag">О компании</span>
+      <h2 class="section-title">Специалисты<br>в мире Apple</h2>
+      <p>BetterLaptops — это не просто магазин, а команда экспертов, влюблённых в технику Apple. Мы находимся в самом сердце Бишкека, в ТЦ ЦУМ, и предлагаем только проверенные высокопроизводительные решения для профессионалов и энтузиастов.</p>
+      <p>Каждое устройство проходит тщательную проверку перед продажей. Мы ценим ваше время — оформим покупку быстро, без лишних вопросов.</p>
+      <div class="about-address">
+        <div class="icon-wrap">
+          <span class="material-symbols-outlined">location_on</span>
+        </div>
+        <div>
+          <h4>Наш адрес</h4>
+          <p>Бишкек, ул. Шопокова, ТЦ ЦУМ</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-img-wrap reveal" style="transition-delay:0.15s">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3IYlfW-PYZLDWQPj-vaSYoOVGErlmR6YlLVKTHLgnsouA74dffC8QuUY9NlqvyvE0hxTM6jpeOdRET6GU7m73FfYg_XZis3NBU78oX7sdkE-S3_yO18TNDIZUJKK9400jR0emEbqoDCyBKCsJHrGlwI90sbQN6WPp0j41FBmu18lphQLgU-YbYj8T-0nq4NdnEl-oqQY8xQviutsH8nudrGQVJ3BTS6RVkZ56XJMqVgOTe58pE14-H9-eD6XHrD14O8g2ycByrhI" alt="Магазин BetterLaptops">
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits" id="benefits">
+  <div class="benefits-header reveal">
+    <span class="section-tag">Преимущества</span>
+    <h2 class="section-title">Почему выбирают нас</h2>
+    <p>Сервис на уровне, который вы заслуживаете</p>
+  </div>
+  <div class="benefits-grid reveal" style="transition-delay:0.1s">
+    <div class="benefit-card">
+      <div class="benefit-icon">
+        <span class="material-symbols-outlined">verified_user</span>
+      </div>
+      <h3>Гарантия</h3>
+      <p>Полная техническая поддержка и официальная гарантия магазина на 12 месяцев на каждое устройство.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">
+        <span class="material-symbols-outlined">credit_card</span>
+      </div>
+      <h3>Рассрочка</h3>
+      <p>Выгодные условия кредитования до 24 месяцев через ведущие банки Кыргызстана. Только паспорт.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">
+        <span class="material-symbols-outlined">swap_horiz</span>
+      </div>
+      <h3>Trade-in</h3>
+      <p>Обменяйте свой старый MacBook на новый с доплатой на месте. Честная оценка в течение 15 минут.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">
+        <span class="material-symbols-outlined">payments</span>
+      </div>
+      <h3>Скупка</h3>
+      <p>Выкупаем вашу технику Apple по самым высоким ценам в городе. Деньги сразу на руки.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section id="catalog">
+  <div class="catalog-inner">
+    <div class="catalog-header reveal">
+      <div>
+        <span class="section-tag">Новинки 2024</span>
+        <h2 class="section-title">Актуальный каталог</h2>
+      </div>
+      <a href="#">Все модели <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span></a>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- Card 1 -->
+      <a class="product-card reveal" href="https://wa.me/996XXXXXXXXX?text=Здравствуйте!%20Интересует%20MacBook%20Pro%2014%22%20M3%20(8GB%2F512GB).%20Подскажите%20наличие%20и%20условия." target="_blank" style="text-decoration:none;color:inherit;display:block;">
+        <div class="product-badge new">Новый</div>
+        <div class="product-wa-hint">
+          <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1">chat</span>
+          Написать в WhatsApp
+        </div>
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRop1mx-12OJ0zSnQIRLfEE89p1fPyOzfHTOQA6qgmyQFJJAufds4lnaYV45bc-noM5KaBpaozmrQCkcgQS4ydx-VCtjPOOrlD59TmmuatWQK1drqZ483iajvfJ6nn6Wm4mGeQIqNdlK6JtkM7FnRUjnAWkvPtBJKtBbPq2ZPcwpFSAk_-ztk-WZW3aFbCneK1uXo5VgRTrvrllF_mSXx0CRW1V12ysx2Im4JSGtojBvrcMubNDfOo5NYSV8bXL1P_aJXcPVX964k" alt="MacBook Pro 14">
+        </div>
+        <div class="product-info">
+          <div class="product-name">MacBook Pro 14" M3</div>
+          <div class="product-spec">8GB RAM · 512GB SSD · Space Gray</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="kgs">145 000 сом</span>
+              <span class="usd">≈ $1 630</span>
+            </div>
+            <div class="btn-cart btn-wa">
+              <span class="material-symbols-outlined" style="font-size:20px;font-variation-settings:'FILL' 1">chat</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a class="product-card reveal" href="https://wa.me/996XXXXXXXXX?text=Здравствуйте!%20Интересует%20MacBook%20Pro%2016%22%20M3%20Max%20(36GB%2F1TB).%20Подскажите%20наличие%20и%20условия." target="_blank" style="text-decoration:none;color:inherit;display:block;transition-delay:0.1s">
+        <div class="product-badge hot">Хит</div>
+        <div class="product-wa-hint">
+          <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1">chat</span>
+          Написать в WhatsApp
+        </div>
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGDSAclrtfyMochN5tsexItu5FeHFQqxnz3Jfq9dWbe6jnuWDXspsfnsArZGEnWXRFPNXLj21GwBNh1B2ehlESQbGhRZKff8kthE9dQogJsattYiMby7UEOTrNfPzBGpjxyxxwZ98fY-eU_KUM9EOb-0MtFgp5wf6FgqvwNHWkjg1oRSElJ_sDn24PFEyg6yA1y1zNIV_T4Odg9zwAp8rApyHvNiNGf8AHY1I-lQx6z1_niy9voJyeKc6C0MZgCdR-125EiacYSLA" alt="MacBook Pro 16">
+        </div>
+        <div class="product-info">
+          <div class="product-name">MacBook Pro 16" M3 Max</div>
+          <div class="product-spec">36GB RAM · 1TB SSD · Silver</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="kgs">285 000 сом</span>
+              <span class="usd">≈ $3 200</span>
+            </div>
+            <div class="btn-cart btn-wa">
+              <span class="material-symbols-outlined" style="font-size:20px;font-variation-settings:'FILL' 1">chat</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a class="product-card reveal" href="https://wa.me/996XXXXXXXXX?text=Здравствуйте!%20Интересует%20MacBook%20Air%2013%22%20M2%20(8GB%2F256GB).%20Подскажите%20наличие%20и%20условия." target="_blank" style="text-decoration:none;color:inherit;display:block;transition-delay:0.2s">
+        <div class="product-wa-hint">
+          <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1">chat</span>
+          Написать в WhatsApp
+        </div>
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm6kSczUtS2Z6k_D8kZYT9xM9NP6k-rRs_j5M_rwxzs5A3SQnAclmE8ZdOpppTIcHNaYo_yUqREFh-xo6e2FKt_pkkiUHlhHN5rpMr6eMt6pKL2jfJ1lSllRHzbSxLNswW5dfglgveKjwqxWTJbMrO7FVt4nZ885hul75teQmxI54JP-N26_PJVBG1cbh0yCGp0qrR08K27WiQaY3wbY6Xbqdw2_4mNzoXy5Q7190dF5tHdNjOElX05qoDhEtigVWaMb2BCG9PD7g" alt="MacBook Air">
+        </div>
+        <div class="product-info">
+          <div class="product-name">MacBook Air 13" M2</div>
+          <div class="product-spec">8GB RAM · 256GB SSD · Midnight</div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="kgs">89 000 сом</span>
+              <span class="usd">≈ $1 000</span>
+            </div>
+            <div class="btn-cart btn-wa">
+              <span class="material-symbols-outlined" style="font-size:20px;font-variation-settings:'FILL' 1">chat</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-inner">
+    <div class="reviews-header reveal">
+      <span class="section-tag">Отзывы</span>
+      <h2 class="section-title">Что говорят клиенты</h2>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card reveal">
+        <div class="quote-mark">"</div>
+        <div class="stars">
+          <span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+        </div>
+        <p class="review-text">Брал MacBook Pro 14 M3 для работы. Ребята помогли с выбором конфигурации, не навязывали лишнего. Оформили рассрочку буквально за 20 минут. Ноутбук новый, запакованный, чек выдали. Однозначно рекомендую!</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">Т</div>
+          <div>
+            <div class="reviewer-name">Тимур А.</div>
+            <div class="reviewer-role">2ГИС · 3 месяца назад</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal" style="transition-delay:0.1s">
+        <div class="quote-mark">"</div>
+        <div class="stars">
+          <span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+        </div>
+        <p class="review-text">Сдала Air M1 по трейд-ин, взяла Pro M3. Оценка честная, не занизили как в других местах. Доплата адекватная. Объяснили всё по гарантии. Буду возвращаться!</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#7c3aed,#ec4899)">А</div>
+          <div>
+            <div class="reviewer-name">Айгерим Д.</div>
+            <div class="reviewer-role">2ГИС · 1 месяц назад</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal" style="transition-delay:0.2s">
+        <div class="quote-mark">"</div>
+        <div class="stars">
+          <span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+        </div>
+        <p class="review-text">Искал MacBook Air M2 для учёбы, нашёл здесь по нормальной цене. Написал в WhatsApp — ответили сразу. Приехал, забрал за полчаса. Упаковка целая, магазин зачётный.</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">Д</div>
+          <div>
+            <div class="reviewer-name">Даниил М.</div>
+            <div class="reviewer-role">2ГИС · 2 недели назад</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal" style="transition-delay:0.3s">
+        <div class="quote-mark">"</div>
+        <div class="stars">
+          <span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+        </div>
+        <p class="review-text">Брал MacBook Pro 16 M3 Max — дорогая покупка. Всё прозрачно: коробку показали, серийник проверили вместе на сайте Apple. Гарантийный лист выдали. Доверяю этим ребятам.</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#06b6d4,#3b82f6)">Р</div>
+          <div>
+            <div class="reviewer-name">Руслан К.</div>
+            <div class="reviewer-role">2ГИС · 5 дней назад</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="faq-header reveal">
+      <span class="section-tag">Поддержка</span>
+      <h2 class="section-title">Частые вопросы</h2>
+    </div>
+    <div class="faq-list reveal" style="transition-delay:0.1s">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Какая гарантия предоставляется на технику?</span>
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Мы предоставляем официальную гарантию магазина сроком на 12 месяцев на все новые устройства Apple. В случае заводского брака гарантируем быстрый ремонт или замену устройства.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Есть ли доставка в регионы Кыргызстана?</span>
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Да, мы осуществляем бережную доставку по всему Кыргызстану через проверенные курьерские службы. По Бишкеку — доставка в день заказа.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Можно ли оформить рассрочку без первоначального взноса?</span>
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Да, совместно с банками-партнёрами предлагаем программы рассрочки без первоначального взноса сроком до 24 месяцев. Требуется только паспорт гражданина КР.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Как работает программа Trade-in?</span>
+          <span class="material-symbols-outlined faq-icon">add</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Приходите с вашим устройством в магазин. Наш специалист проведёт диагностику и оценку в течение 15 минут. После этого вы можете зачесть стоимость старого устройства в счёт покупки нового.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo" style="font-size:18px">BetterLaptops<span class="dot"></span></div>
+      <p>Ваш надёжный партнёр в мире профессиональной техники Apple в Кыргызстане. Качество и сервис превыше всего.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Навигация</h4>
+      <ul>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#benefits">Преимущества</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Услуги</h4>
+      <ul>
+        <li><span>Гарантия</span></li>
+        <li><span>Рассрочка</span></li>
+        <li><span>Trade-in</span></li>
+        <li><span>Скупка</span></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Контакты</h4>
+      <div class="footer-contacts">
+        <div class="contact-row">
+          <span class="material-symbols-outlined">location_on</span>
+          ТЦ ЦУМ, ул. Шопокова
+        </div>
+        <div class="contact-row">
+          <span class="material-symbols-outlined">schedule</span>
+          10:00 — 21:00 ежедневно
+        </div>
+        <div class="contact-row">
+          <span class="material-symbols-outlined">phone</span>
+          +996 (XXX) XX-XX-XX
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 BetterLaptops. Бишкек, ЦУМ. Все права защищены.</p>
+    <div class="social-links">
+      <a href="#">Instagram</a>
+      <a href="#">Telegram</a>
+      <a href="#">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── SCROLL REVEAL ──
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // ── FAQ ACCORDION ──
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── CART ──
+  let cartCount = 0;
+  const cartBadge = document.querySelector('.badge');
+
+  function addToCart(btn) {
+    cartCount++;
+    cartBadge.textContent = cartCount;
+
+    // button pulse feedback
+    btn.style.background = '#10b981';
+    btn.style.borderColor = '#10b981';
+    btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:20px;font-variation-settings:\'FILL\' 1">check</span>';
+    setTimeout(() => {
+      btn.style.background = '';
+      btn.style.borderColor = '';
+      btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:20px">shopping_cart</span>';
+    }, 1200);
+  }
+
+  // ── NAV ACTIVE LINK ON SCROLL ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
